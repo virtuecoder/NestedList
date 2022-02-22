@@ -14,7 +14,11 @@
               :node="node"
               id="domains"
             />
+            <q-card-section>
+              <div class="text-h5">Activities 2</div>
+            </q-card-section>
             <!-- <DndTree :store="domainStore"></DndTree> -->
+            <QNestedList :items="items" />
           </q-list>
         </q-card-section>
 
@@ -43,10 +47,52 @@
 import Domain from 'src/components/Domain.vue';
 import { useDomain, } from 'src/store/Domain';
 import { defineComponent, onMounted } from 'vue';
+import QNestedList from 'src/components/QNestedList.vue';
 
 export default defineComponent({
   name: 'MainPage',
-  components: { Domain },
+  components: {QNestedList, Domain },
+  data: () => {
+    return {
+      items: [
+        {
+          id: 1,
+          title: 'Test 1',
+          childreen: []
+        },
+        {
+          id: 2,
+          title: 'Test 2',
+          childreen: []
+        },
+        {
+          id: 3,
+          title: 'Test 3',
+          childreen: []
+        },
+        {
+          id: 4,
+          title: 'Test 4',
+          childreen: []
+        },
+        {
+          id: 5,
+          title: 'Test 5',
+          childreen: []
+        },
+        {
+          id: 6,
+          title: 'Test 6',
+          childreen: []
+        },
+        {
+          id: 7,
+          title: 'Test 7',
+          childreen: []
+        }
+      ]
+    }
+  },
   setup() {
     const domainStore = useDomain()
 
